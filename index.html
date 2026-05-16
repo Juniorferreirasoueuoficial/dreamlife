@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>Memorando</title>
+<meta name="description" content="Eu criei uma MoneyMark™ para fazer vendas de R$3K a R$30K sem virar escravo da operação. Agora vou te mostrar como construir a sua.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Memorando">
+<meta property="og:description" content="Eu criei uma MoneyMark™ para fazer vendas de R$3K a R$30K sem virar escravo da operação.">
+<meta property="og:type" content="website">
+
+<!-- ===== Meta Pixel Code ===== -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2805654709772920');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2805654709772920&ev=PageView&noscript=1"/></noscript>
+<!-- ===== End Meta Pixel Code ===== -->
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#37352f;
+    --text-soft:#5b5950;
+    --text-muted:#9b9a97;
+    --rule:#e9e9e7;
+    --blue:#2383e2;
+    --max:720px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  html{-webkit-text-size-adjust:100%}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
+      "Helvetica Neue",Helvetica,Arial,"Inter",sans-serif;
+    font-size:18px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    word-wrap:break-word;
+  }
+
+  .page{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:64px 28px 140px;
+  }
+
+  /* ===== Headline ===== */
+  h1.title{
+    font-size:2.4rem;
+    line-height:1.25;
+    font-weight:800;
+    letter-spacing:-0.02em;
+    margin:0 0 12px;
+  }
+
+  .subtitle{
+    font-size:1.15rem;
+    color:var(--text-soft);
+    font-style:italic;
+    margin-bottom:40px;
+  }
+
+  /* ===== Headings ===== */
+  h2{
+    font-size:1.7rem;
+    line-height:1.3;
+    font-weight:700;
+    letter-spacing:-0.015em;
+    margin:52px 0 18px;
+  }
+
+  h3{
+    font-size:1.35rem;
+    line-height:1.35;
+    font-weight:700;
+    margin:40px 0 14px;
+  }
+
+  /* ===== Paragraphs ===== */
+  p{
+    margin:0 0 22px;
+    color:var(--text);
+  }
+
+  p.soft{color:var(--text-soft)}
+  p.lead{font-size:1.05rem}
+  strong{font-weight:700}
+
+  .arrow{color:var(--text-soft)}
+
+  /* ===== Lists ===== */
+  ul{
+    list-style:none;
+    margin:0 0 26px;
+    padding:0;
+  }
+  ul li{
+    position:relative;
+    padding:6px 0 6px 28px;
+    color:var(--text);
+  }
+  ul.dot li::before{
+    content:"";
+    position:absolute;
+    left:6px;top:16px;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--text);
+  }
+  ul.dash li::before{
+    content:"→";
+    position:absolute;
+    left:0;top:6px;
+    color:var(--text-soft);
+  }
+  ul.emoji li{padding-left:34px}
+  ul.emoji li .ic{
+    position:absolute;
+    left:0;top:6px;
+    font-size:1rem;
+  }
+
+  /* ===== Divider ===== */
+  hr{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:48px 0;
+  }
+
+  /* ===== Callout / quote-style big lines ===== */
+  .accent{
+    color:var(--text-soft);
+  }
+
+  /* ===== Images ===== */
+  figure{
+    margin:40px 0;
+    text-align:center;
+  }
+  figure img{
+    max-width:100%;
+    height:auto;
+    border-radius:14px;
+    display:block;
+    margin:0 auto;
+  }
+  figure.shot img{
+    max-width:380px;
+    box-shadow:0 8px 30px rgba(15,15,15,.08);
+  }
+  figure figcaption{
+    margin-top:14px;
+    font-size:.95rem;
+    color:var(--text-muted);
+  }
+
+  /* grouped stacked shots (resultados / pix) */
+  .stack{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    align-items:center;
+    margin:40px 0;
+  }
+  .stack img{
+    max-width:420px;
+    width:100%;
+    height:auto;
+    border-radius:12px;
+    box-shadow:0 6px 24px rgba(15,15,15,.07);
+    display:block;
+  }
+  .stack.results img{max-width:480px}
+  .stack.results img:first-child{max-width:340px}
+
+  /* placeholder so layout is correct before real images arrive */
+  .img-ph{
+    border:1px dashed #d0d0cc;
+    border-radius:14px;
+    background:#fafaf9;
+    color:var(--text-muted);
+    font-size:.9rem;
+    padding:64px 20px;
+    text-align:center;
+  }
+
+  /* ===== Price block ===== */
+  .price{
+    font-size:2rem;
+    font-weight:800;
+    color:var(--blue);
+    margin:30px 0 22px;
+    line-height:1.3;
+  }
+
+  /* ===== CTA ===== */
+  .cta-wrap{
+    margin:56px 0 20px;
+    text-align:center;
+  }
+  .cta{
+    display:inline-block;
+    background:var(--blue);
+    color:#fff;
+    text-decoration:none;
+    font-size:1.15rem;
+    font-weight:700;
+    line-height:1.4;
+    padding:20px 34px;
+    border-radius:14px;
+    box-shadow:0 10px 28px rgba(35,131,226,.32);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .cta:active{transform:translateY(1px)}
+  .cta:hover{box-shadow:0 12px 34px rgba(35,131,226,.42)}
+
+  .cta-inline{
+    color:var(--blue);
+    font-weight:700;
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+
+  .price-link{
+    color:inherit;
+    text-decoration:underline;
+    text-underline-offset:5px;
+    text-decoration-thickness:2px;
+  }
+  .price-link:hover{opacity:.85}
+
+  /* ===== Mobile ===== */
+  @media (max-width:600px){
+    body{font-size:17px;line-height:1.7}
+    .page{padding:40px 20px 110px}
+    h1.title{font-size:1.85rem}
+    .subtitle{font-size:1.05rem;margin-bottom:32px}
+    h2{font-size:1.4rem;margin:42px 0 16px}
+    h3{font-size:1.2rem}
+    .price{font-size:1.6rem}
+    .cta{display:block;font-size:1.05rem;padding:18px 22px}
+    figure.shot img{max-width:100%}
+    .stack img,.stack.results img{max-width:100%}
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- ===== HEADLINE (palavra "Memorando" removida) ===== -->
+  <h1 class="title">Eu criei uma MoneyMark™ para fazer vendas de R$3K a R$30K sem virar escravo da operação.</h1>
+  <p class="subtitle">Agora vou te mostrar como construir a sua…</p>
+
+  <p><span class="arrow">→</span> DreamLife é o processo onde você transforma sua Experti$e em um ativo digital de alto valor.</p>
+
+  <p>Com Posicionamento, Aquisição e Conversão para vender sem virar escravo da operação…</p>
+
+  <p>Uma estrutura para transformar o que você sabe em uma oferta clara e que vende, diferencia você no mercado e diminui a dependência da sua presença.</p>
+
+  <p><strong>Porque vender mais não resolve se cada venda vira mais peso na sua operação.</strong></p>
+
+  <!-- IMG: foto aeroporto -->
+  <figure>
+    <img src="img/aeroporto.jpg" alt="" loading="lazy">
+  </figure>
+
+  <h2>Talvez Você já faça vendas. Mas o real problema é o que cada venda leva junto.</h2>
+
+  <p class="soft">E talvez esse nem seja o problema.</p>
+
+  <p>Você fecha cliente, Entrega resultado, Resolve problema.</p>
+
+  <p>Tem conhecimento que o mercado paga para acessar.</p>
+
+  <h3>Só que cada nova venda vem com uma conta escondida.</h3>
+
+  <ul class="dot">
+    <li>Mais mensagem.</li>
+    <li>Mais reunião.</li>
+    <li>Mais ajuste.</li>
+    <li>Mais cobrança.</li>
+    <li>Mais acompanhamento.</li>
+    <li>Mais decisão.</li>
+    <li>Mais coisa esperando você para andar.</li>
+  </ul>
+
+  <p>A venda entra como vitória.</p>
+
+  <p>Mas logo vira mais uma demanda presa no seu colo.</p>
+
+  <p><strong>E aí você percebe uma coisa meio cruel:</strong></p>
+
+  <p>vender mais não necessariamente te deixou mais livre.</p>
+
+  <p>Só deixou a operação mais cara, mais cheia e mais dependente de você.</p>
+
+  <p>O problema não é sua capacidade de vender.</p>
+
+  <p class="accent"><strong>É que hoje sua expertise ainda está presa num modelo onde cada venda aumenta a quantidade de energia e tempo que o negócio consome de você.</strong></p>
+
+  <hr>
+
+  <h2>O problema não é vender pouco.</h2>
+
+  <p>É vender dentro de uma estrutura que prende você.</p>
+
+  <p>Porque se toda venda depende de você para acontecer…</p>
+
+  <p>E depois depende de você para ser entregue…</p>
+
+  <p>Vender mais só aumenta o problema.</p>
+
+  <ul class="dot">
+    <li>Mais lead.</li>
+    <li>Mais call.</li>
+    <li>Mais cliente.</li>
+    <li>Mais entrega.</li>
+    <li>Mais ajuste.</li>
+    <li>Mais suporte.</li>
+    <li>Mais você.</li>
+  </ul>
+
+  <p>Por fora parece crescimento.</p>
+
+  <p>Por dentro é só um negócio ficando mais dependente da hora mais cara da empresa, <strong>A SUA</strong>.</p>
+
+  <p>E talvez seja por isso que tanta coisa que você tentou até funcionou por um tempo…</p>
+
+  <p>Mentoria de estratégias soltas, tráfego, funil, lançamento, high ticket, conteúdo, copy…</p>
+
+  <p>mas depois tudo voltou para o mesmo lugar.</p>
+
+  <p>Porque a tática mudou.</p>
+
+  <h2>Mas o centro da operação continuou sendo você.</h2>
+
+  <p>Eu chamo isso de <strong>Modelo Hamster™</strong>.</p>
+
+  <p>Uma estrutura que parece progresso…</p>
+
+  <p>mas na pratica você nunca sai do lugar.</p>
+
+  <hr>
+
+  <h2>E o pior é que isso não melhora sozinho…</h2>
+
+  <p>Se você continuar vendendo dentro da mesma estrutura…</p>
+
+  <ul class="dot">
+    <li>Venda vira mais entrega.</li>
+    <li>Cliente vira mais suporte.</li>
+    <li>Demanda vira mais urgência.</li>
+    <li>Faturamento vira mais responsabilidade presa em você.</li>
+  </ul>
+
+  <p>E aí acontece a parte mais perigosa:</p>
+
+  <h2>Você começa a chamar prisão de crescimento.</h2>
+
+  <p>Porque o número sobe.</p>
+
+  <p>Mas sua liberdade não.</p>
+
+  <p>A agenda continua cheia. A cabeça continua ligada. A operação continua esperando você.</p>
+
+  <p>E cada novo "próximo nível" só parece exigir uma versão mais cansada sua.</p>
+
+  <p>Esse é o custo real de continuar igual.</p>
+
+  <p>Não é só perder dinheiro.</p>
+
+  <p>É continuar usando sua expertise para construir uma operação que te prende cada vez mais.</p>
+
+  <hr>
+
+  <h2>A saída não é vender mais no braço. É transformar sua expertise em um ativo.</h2>
+
+  <p>Porque existe uma diferença brutal entre vender conhecimento e construir uma MoneyMark™.</p>
+
+  <p>Quando você vende conhecimento do jeito comum, tudo depende de você.</p>
+
+  <ul class="dot">
+    <li>Você explica.</li>
+    <li>Você convence.</li>
+    <li>Você responde.</li>
+    <li>Você entrega.</li>
+    <li>Você acompanha.</li>
+    <li>Você ajusta.</li>
+    <li>Você repete.</li>
+  </ul>
+
+  <p>Mas quando sua expertise vira um ativo, o jogo muda.</p>
+
+  <p>O posicionamento começa a filtrar quem chega.</p>
+
+  <p>O conteúdo começa a gerar percepção antes da conversa.</p>
+
+  <p>A página conduz a decisão de compra.</p>
+
+  <p>A oferta gera receita previsivel.</p>
+
+  <p>A venda deixa de depender só do seu esforço no 1:1.</p>
+
+  <p>E a entrega começa a seguir uma estrutura.</p>
+
+  <h2>É isso que eu chamo de MoneyMark™.</h2>
+
+  <p>Um ativo digital que transforma sua expertise em uma oferta, desejável e cara…</p>
+
+  <p>sem você precisar empurrar cada etapa manualmente.</p>
+
+  <!-- IMG: print Hotmart + resultados de vendas +100K (agrupados) -->
+  <div class="stack results">
+    <img src="img/hotmart.jpg" alt="" loading="lazy">
+    <img src="img/resultado-1.jpg" alt="" loading="lazy">
+    <img src="img/resultado-2.jpg" alt="" loading="lazy">
+    <img src="img/resultado-3.jpg" alt="" loading="lazy">
+  </div>
+
+  <h2>Uma MoneyMark™ não é só uma Oferta Cara.</h2>
+
+  <p>É um sistema de geração de receitar.</p>
+
+  <p>Ela pega o que hoje está solto na sua cabeça…</p>
+
+  <ul class="dot">
+    <li>sua experiência,</li>
+    <li>sua metodologia,</li>
+    <li>seus bastidores,</li>
+    <li>seus resultados,</li>
+    <li>sua forma de enxergar o problema,</li>
+  </ul>
+
+  <p>e transforma isso em uma estrutura que o mercado consegue entender, desejar e comprar.</p>
+
+  <p>Porque o expert comum vende tempo.</p>
+
+  <ul class="emoji">
+    <li><span class="ic">🔴</span>Vende Call.</li>
+    <li><span class="ic">🔴</span>Vende Entrega.</li>
+    <li><span class="ic">🔴</span>Vende Acesso.</li>
+    <li><span class="ic">🔴</span>Vende acompanhamento.</li>
+  </ul>
+
+  <p>A MoneyMark™ vende um Ecossistema Organizadado.</p>
+
+  <ul class="emoji">
+    <li><span class="ic">✅</span>Com nome.</li>
+    <li><span class="ic">✅</span>Com lógica.</li>
+    <li><span class="ic">✅</span>Com promessa.</li>
+    <li><span class="ic">✅</span>Com mecanismo.</li>
+    <li><span class="ic">✅</span>Com aquisição.</li>
+    <li><span class="ic">✅</span>Com conversão.</li>
+  </ul>
+
+  <p>O sistema que organiza as partes que fazem essa MoneyMark™ funcionar sem depender de improviso o tempo todo.</p>
+
+  <ul class="dash">
+    <li>Conteúdo para gerar percepção.</li>
+    <li>Página para preparar decisão.</li>
+    <li>DM para filtrar intenção.</li>
+    <li>Oferta para gerar receita.</li>
+    <li>Entrega para sustentar resultado.</li>
+    <li>IA e processos para tirar peso repetitivo.</li>
+  </ul>
+
+  <p>Não é para você sumir do negócio.</p>
+
+  <p>É para parar de ser o gargalo de tudo.</p>
+
+  <hr>
+
+  <h2>Dentro do DreamLife, você constrói sua MoneyMark™ em 3 movimentos.</h2>
+
+  <p>Não é para você assistir aula e depois tentar adivinhar o que fazer.</p>
+
+  <p>É para sair com a estrutura montada.</p>
+
+  <h3>1. Posicionar</h3>
+
+  <p>Ajustar a forma como o mercado entende sua expertise.</p>
+
+  <p>Aqui você define o que vende, para quem vende, por que isso vale mais e por que comparar você com +1 no mercado e começa a parecer errado.</p>
+
+  <h3>2. Estruturar</h3>
+
+  <p>Transformar sua experiência em uma MoneyMark™.</p>
+
+  <ul class="dot">
+    <li>Promessa.</li>
+    <li>Mecanismo.</li>
+    <li>Oferta.</li>
+    <li>Ativos.</li>
+    <li>Argumentos.</li>
+    <li>Conversão.</li>
+  </ul>
+
+  <p>A expertise sai da sua cabeça e vira um ativo que o mercado consegue comprar.</p>
+
+  <h3>3. Vender sem carregar tudo no braço</h3>
+
+  <p>Organizar aquisição, conteúdo e conversão para gerar demanda com menos improviso.</p>
+
+  <p>A ideia não é criar mais uma operação pesada.</p>
+
+  <p>É montar uma estrutura que vende sem exigir que você esteja empurrando tudo o tempo inteiro.</p>
+
+  <hr>
+
+  <h2>O que você vai construir dentro do DreamLife</h2>
+
+  <p>Você não entra para assistir mais conteúdo.</p>
+
+  <p>Você entra para montar sua MoneyMark™.</p>
+
+  <p>Na prática, você vai construir:</p>
+
+  <h3>1. Seu posicionamento de alto valor</h3>
+
+  <p>Para o mercado entender por que sua expertise vale mais e por que comparar você com commodity não faz sentido.</p>
+
+  <h3>2. Contrução da Sua Oferta e sua MoneyMark™</h3>
+
+  <p>Uma oferta digital de R$3K a R$30K baseada no que você já sabe, já faz ou já entrega.</p>
+
+  <h3>3. Sua mensagem de venda</h3>
+
+  <p>A forma certa de explicar o problema, apresentar a solução e fazer o lead entender o valor antes de perguntar preço.</p>
+
+  <h3>4. Sua Estrutura de Aquisição</h3>
+
+  <p>O caminho para gerar atenção, demanda e conversas sem depender só de postagem aleatória ou indicação.</p>
+
+  <h3>5. Sua Página de conversão</h3>
+
+  <p>O ativo que organiza sua promessa, seu mecanismo e sua decisão de compra.</p>
+
+  <h3>6. Seu plano de geração de receita sem escravidão operacional</h3>
+
+  <p>Para sua MoneyMark™ vender sem virar mais uma operação pesada presa no seu colo.</p>
+
+  <p>No final, a ideia é simples:</p>
+
+  <p>você sai com uma estrutura clara para vender sua expertise como ativo.</p>
+
+  <p>Não como mais uma prestação de serviço solta.</p>
+
+  <hr>
+
+  <h2>Isso é para quem tem algo valioso para transformar em ativo.</h2>
+
+  <p>Você pode já vender online.</p>
+
+  <p>Ou pode estar vindo de serviço, consultoria, atendimento, prestação ou operação offline.</p>
+
+  <p>Tanto faz.</p>
+
+  <p>O ponto não é se você já tem funil, página, audiência ou tráfego.</p>
+
+  <p>O ponto é se você tem algo real para empacotar.</p>
+
+  <ul class="dot">
+    <li>Conhecimento.</li>
+    <li>Experiência.</li>
+    <li>Método.</li>
+    <li>Resultado.</li>
+    <li>Processo.</li>
+    <li>Habilidade.</li>
+    <li>Visão de mercado.</li>
+    <li>Capacidade de resolver um problema que alguém pagaria para resolver.</li>
+  </ul>
+
+  <p>Se você tem isso, mas ainda vende de um jeito solto, pesado ou dependente demais de você…</p>
+
+  <p>a MoneyMark™ faz sentido.</p>
+
+  <ul class="emoji">
+    <li><span class="ic">❌</span>Agora, se você não tem expertise nenhuma…</li>
+    <li><span class="ic">❌</span>não sabe que problema resolve…</li>
+    <li><span class="ic">❌</span>quer uma renda rápida…</li>
+    <li><span class="ic">❌</span>ou está procurando uma promessa fácil para ganhar dinheiro na internet…</li>
+  </ul>
+
+  <h3>Não entra.</h3>
+
+  <p>Isso não é para inventar valor do nada.</p>
+
+  <p>É para pegar o valor que você já tem e transformar em uma estrutura que o mercado consegue entender, desejar e comprar.</p>
+
+  <hr>
+
+  <h2>Não precisa acreditar em mim…</h2>
+
+  <p>Quero que você olhe a estrutura.</p>
+
+  <p>Porque qualquer pessoa pode prometer venda.</p>
+
+  <p>O que quase ninguém mostra é o que precisa existir antes da venda acontecer: posicionamento, oferta, argumento, página, aquisição, conversão, entrega.</p>
+
+  <p>É isso que a MoneyMark™ organiza.</p>
+
+  <!-- IMG: prints de Pix recebidos (agrupados) -->
+  <div class="stack">
+    <img src="img/pix-1.jpg" alt="" loading="lazy">
+    <img src="img/pix-2.jpg" alt="" loading="lazy">
+    <img src="img/pix-3.jpg" alt="" loading="lazy">
+  </div>
+
+  <p class="accent"><strong>Isso aqui não é só um print bonito. É a estrutura que define como sua expertise vira uma oferta de R$3K a R$30K sem depender de improviso o tempo todo.</strong></p>
+
+  <hr>
+
+  <h2>Antes do preço, entende o que você está levando.</h2>
+
+  <p>Você não está pagando para assistir aula sobre oferta, funil ou posicionamento.</p>
+
+  <p>Você está entrando para montar <strong>sua MoneyMark™</strong>: a primeira versão do ativo que transforma sua expertise em uma oferta de alto valor.</p>
+
+  <p>Se eu fosse construir isso mais perto de você, olhando sua operação, revisando sua oferta e ajustando a estrutura comigo, isso não seria barato.</p>
+
+  <p><strong>Porque mexe na alavanca mais cara do negócio:</strong> como sua expertise vira dinheiro sem depender de você empurrando tudo no braço.</p>
+
+  <p>Uma consultoria para fazer isso de perto começaria em R$5.000…</p>
+
+  <p>E uma implementação mais profunda, com posicionamento, aquisição, conversão e operação, chega em 10k-30k onde eu coloco a mão e faço junto…</p>
+
+  <p>Porque o ativo que estamos falando aqui não é uma promessa.</p>
+
+  <p>É uma estrutura para vender uma oferta de <strong>R$3K, R$10K ou R$30K</strong> com mais clareza, mais valor percebido e menos dependência operacional.</p>
+
+  <p>Agora vem a diferença.</p>
+
+  <p>Eu poderia facilmente cobrar R$3.000 por isso, e venderia fácil, fácil…</p>
+
+  <p>Mas hoje, sendo bem direto, estou em busca no maior numero de cases possiveis para construir sua MoneyMark™ sem precisar pagar preço de consultoria.</p>
+
+  <p>Por isso o valor agora é:</p>
+
+  <p class="price"><a class="price-link" href="https://wa.me/5511986996261?text=Quero%20Desbloquear%20Meu%20Acesso!" data-cta="mql">R$497 ou 12x de R$49.</a></p>
+
+  <p>E sim, está baixo.</p>
+
+  <p>Não porque vale pouco.</p>
+
+  <p>Mas porque ainda está no começo, antes disso virar algo maior…</p>
+
+  <p>Agora faz a conta sem emoção.</p>
+
+  <h2>Se sua MoneyMark™ vira uma oferta de R$3K e você vende uma vez (que pode acontecer ja nos próximos 3-7 dias), o preço já não importa mais…</h2>
+
+  <ul class="dash">
+    <li>Se vende duas vezes, entraram R$6K.</li>
+    <li>Se vende três vezes, entraram R$9K.</li>
+  </ul>
+
+  <p>E isso usando a conta pequena.</p>
+
+  <p>Nem estou colocando uma venda de <strong>R$10K</strong> ou <strong>R$30K</strong> na mesa.</p>
+
+  <p>Então a pergunta não é se <strong>R$497</strong> é caro.</p>
+
+  <h2>A pergunta é quanto dinheiro sua expertise continua deixando na mesa por não ter uma estrutura clara para ser vendida como ativo.</h2>
+
+  <p>Porque o caro não é entrar no DreamLife.</p>
+
+  <ul class="dash">
+    <li>Caro é continuar improvisando oferta, conteúdo, venda e posicionamento toda vez que precisa gerar dinheiro.</li>
+    <li>Caro é ter conhecimento bom e continuar vendendo como se fosse só execução.</li>
+    <li>Caro é depender de energia, indicação, conversa solta e operação manual para transformar expertise em receita.</li>
+  </ul>
+
+  <p><strong>Se R$497 parece muito para construir sua MoneyMark com uma oferta que pode vender de R$3K a R$30K, não entra.</strong></p>
+
+  <p>Mas não chama isso de caro.</p>
+
+  <p>O nome disso é continuar pequeno demais na forma de tirar o dinheiro do mercado que ja é seu…</p>
+
+  <hr>
+
+  <h2>Agora existem 2 caminhos.</h2>
+
+  <p><strong>I.</strong> O primeiro é fechar isso aqui e continuar tentando transformar sua expertise em dinheiro do jeito atual.</p>
+
+  <p>No improviso, na indicação, na conversa solta, na energia do dia e na operação dependendo de você para tudo andar.</p>
+
+  <p>Pode funcionar.</p>
+
+  <p>Mas você já sabe o preço.</p>
+
+  <p>Cada venda nova puxa mais entrega. Cada cliente novo puxa mais operação. Cada mês sem estrutura te mantém no mesmo ciclo.</p>
+
+  <p>Vender, entregar, resolver, repetir.</p>
+
+  <p><strong>II.</strong> O segundo caminho é entrar agora no DreamLife por <a class="cta-inline" href="https://wa.me/5511986996261?text=Quero%20Desbloquear%20Meu%20Acesso!" data-cta="mql">R$497 ou 12x de R$49.</a> e construir sua primeira MoneyMark™ enquanto ainda está nessa condição que pode sofrer ajuste a qualquer momento…</p>
+
+  <p>Um ativo para organizar sua expertise em uma oferta de <strong>R$3K a R$30K</strong>.</p>
+
+  <p>Com posicionamento, aquisição, conversão e página para você parar de vender como se tudo dependesse da sua presença o tempo inteiro.</p>
+
+  <p>Não é implementação individual.</p>
+
+  <p>Não é consultoria 1:1.</p>
+
+  <p>Não é minha mão dentro da sua operação.</p>
+
+  <p>É o acesso para construir sua MoneyMark™ com a estrutura que eu uso para transformar expertise em ativo de venda.</p>
+
+  <p>Se faz sentido, entra agora.</p>
+
+  <p>Se não faz, fecha a página.</p>
+
+  <p>Só não faz o pior:</p>
+
+  <p>Entender que o problema é estrutura… E continuar tentando resolver com mais esforço.</p>
+
+  <div class="cta-wrap">
+    <a class="cta" href="https://wa.me/5511986996261?text=Quero%20Desbloquear%20Meu%20Acesso!" data-cta="mql">
+      Desbloqueie seu Acesso → R$497 ou 12x de R$49.
+    </a>
+  </div>
+
+</main>
+
+<!-- ===== Evento personalizado MQL no clique do CTA ===== -->
+<script>
+  (function(){
+    function fireMQL(){
+      if (window.fbq) {
+        fbq('trackCustom', 'MQL', {
+          content_name: 'DreamLife - MoneyMark',
+          value: 497.00,
+          currency: 'BRL'
+        });
+      }
+    }
+    document.querySelectorAll('[data-cta="mql"]').forEach(function(el){
+      el.addEventListener('click', function(){
+        fireMQL();
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
