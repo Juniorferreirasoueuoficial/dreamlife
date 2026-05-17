@@ -428,7 +428,7 @@ src="https://www.facebook.com/tr?id=2805654709772920&ev=PageView&noscript=1"/></
   <p>sem você precisar empurrar cada etapa manualmente.</p>
 
   <!-- IMG: print Hotmart + resultados de vendas +100K (agrupados) -->
-  <div class="stack results">
+  <div class="stack results" id="ev-prova">
     <img src="img/hotmart.jpg" alt="" loading="lazy">
     <img src="img/resultado-1.jpg" alt="" loading="lazy">
     <img src="img/resultado-2.jpg" alt="" loading="lazy">
@@ -623,7 +623,7 @@ src="https://www.facebook.com/tr?id=2805654709772920&ev=PageView&noscript=1"/></
   <p>É isso que a MoneyMark™ organiza.</p>
 
   <!-- IMG: prints de Pix recebidos (agrupados) -->
-  <div class="stack">
+  <div class="stack" id="ev-pix">
     <img src="img/pix-1.jpg" alt="" loading="lazy">
     <img src="img/pix-2.jpg" alt="" loading="lazy">
     <img src="img/pix-3.jpg" alt="" loading="lazy">
@@ -659,7 +659,7 @@ src="https://www.facebook.com/tr?id=2805654709772920&ev=PageView&noscript=1"/></
 
   <p>Por isso o valor agora é:</p>
 
-  <p class="price"><a class="price-link" href="https://wa.me/5511986996261?text=Quero%20Desbloquear%20Meu%20Acesso!" data-cta="mql">R$497 ou 12x de R$49.</a></p>
+  <p class="price" id="ev-preco"><a class="price-link" href="https://wa.me/5511986996261?text=Quero%20Desbloquear%20Meu%20Acesso!" data-cta="mql">R$497 ou 12x de R$49.</a></p>
 
   <p>E sim, está baixo.</p>
 
@@ -736,7 +736,7 @@ src="https://www.facebook.com/tr?id=2805654709772920&ev=PageView&noscript=1"/></
 
   <p>Entender que o problema é estrutura… E continuar tentando resolver com mais esforço.</p>
 
-  <div class="cta-wrap">
+  <div class="cta-wrap" id="ev-cta">
     <a class="cta" href="https://wa.me/5511986996261?text=Quero%20Desbloquear%20Meu%20Acesso!" data-cta="mql">
       Desbloqueie seu Acesso → R$497 ou 12x de R$49.
     </a>
@@ -760,6 +760,48 @@ src="https://www.facebook.com/tr?id=2805654709772920&ev=PageView&noscript=1"/></
       el.addEventListener('click', function(){
         fireMQL();
       });
+    });
+  })();
+</script>
+
+<!-- ===== Eventos de scroll por seção (dispara 1x cada) ===== -->
+<script>
+  (function(){
+    // mapeia id do elemento -> nome do evento no Facebook
+    var sections = {
+      'ev-prova': 'ViewProva',
+      'ev-pix':   'ViewPix',
+      'ev-preco': 'ViewPreco',
+      'ev-cta':   'ViewCTA'
+    };
+
+    var fired = {};
+
+    function track(evt){
+      if (fired[evt]) return;
+      fired[evt] = true;
+      if (window.fbq) {
+        fbq('trackCustom', evt, {
+          content_name: 'DreamLife - MoneyMark'
+        });
+      }
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          var evt = sections[entry.target.id];
+          if (evt) track(evt);
+          io.unobserve(entry.target); // garante disparo único
+        }
+      });
+    }, { threshold: 0.4 }); // 40% da seção visível
+
+    Object.keys(sections).forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
     });
   })();
 </script>
