@@ -801,8 +801,39 @@ src="https://www.facebook.com/tr?id=2805654709772920&ev=PageView&noscript=1"/></
       return d;
     }
 
+    // endpoint CAPI (Conversions API server-side) — só para o MQL
+    var CAPI_URL = 'https://dreamlife-capi.juniorferreirasoueu-contato.workers.dev/';
+
     function track(name, extra){
-      if (window.fbq) fbq('trackCustom', name, eventData(extra));
+      var d = eventData(extra);
+      // Pixel (navegador)
+      if (window.fbq) fbq('trackCustom', name, d);
+      // CAPI (servidor) — apenas MQL, mesmo event_id => Facebook deduplica
+      if (name === 'MQL') {
+        var payload = JSON.stringify({
+          event_name:       'MQL',
+          event_id:         d.event_id,
+          event_source_url: location.href,
+          value:            d.value,
+          currency:         d.currency,
+          content_name:     d.content_name,
+          utm_source:       d.utm_source,
+          utm_medium:       d.utm_medium,
+          utm_campaign:     d.utm_campaign,
+          utm_content:      d.utm_content,
+          fbp:              d.fbp,
+          fbc:              d.fbc
+        });
+        try {
+          // sendBeacon: não atrasa o redirect pro WhatsApp
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon(CAPI_URL, new Blob([payload], { type: 'application/json' }));
+          } else {
+            fetch(CAPI_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: payload, keepalive: true });
+          }
+        } catch (e) {}
+      }
     }
 
     /* ---------- 2. Evento MQL no clique do CTA ---------- */
