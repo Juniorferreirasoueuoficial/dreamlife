@@ -744,65 +744,99 @@ src="https://www.facebook.com/tr?id=2805654709772920&ev=PageView&noscript=1"/></
 
 </main>
 
-<!-- ===== Evento personalizado MQL no clique do CTA ===== -->
+<!-- ===== Tracking DreamLife: atribuição + eventos (não-bloqueante) ===== -->
 <script>
   (function(){
-    function fireMQL(){
-      if (window.fbq) {
-        fbq('trackCustom', 'MQL', {
-          content_name: 'DreamLife - MoneyMark',
-          value: 497.00,
-          currency: 'BRL'
-        });
-      }
+    /* ---------- 1. Camada de atribuição ---------- */
+    var STORE = 'dl_attr';
+
+    function getCookie(name){
+      var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return m ? m.pop() : '';
     }
+
+    function uuid(){
+      // event_id para deduplicação Pixel <-> CAPI (Parte 2)
+      if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+      return 'e-' + Date.now() + '-' + Math.random().toString(16).slice(2);
+    }
+
+    // captura 1x na chegada e persiste pela sessão
+    function loadAttr(){
+      var saved;
+      try { saved = JSON.parse(sessionStorage.getItem(STORE)); } catch(e){}
+      if (saved && saved.utm_campaign !== undefined) return saved;
+
+      var qs = new URLSearchParams(location.search);
+      var a = {
+        fbclid:       qs.get('fbclid')       || '',
+        utm_source:   qs.get('utm_source')   || '',
+        utm_medium:   qs.get('utm_medium')   || '',
+        utm_campaign: qs.get('utm_campaign') || '',
+        utm_content:  qs.get('utm_content')  || '',
+        utm_term:     qs.get('utm_term')     || '',
+        landing:      location.pathname,
+        ts:           Date.now()
+      };
+      try { sessionStorage.setItem(STORE, JSON.stringify(a)); } catch(e){}
+      return a;
+    }
+
+    var attr = loadAttr();
+
+    // dados que enriquecem cada evento enviado ao Facebook
+    function eventData(extra){
+      var d = {
+        content_name: 'DreamLife - MoneyMark',
+        event_id:     uuid(),                 // dedup com CAPI (Parte 2)
+        utm_source:   attr.utm_source,
+        utm_medium:   attr.utm_medium,
+        utm_campaign: attr.utm_campaign,
+        utm_content:  attr.utm_content,
+        fbp:          getCookie('_fbp'),
+        fbc:          getCookie('_fbc') ||
+                      (attr.fbclid ? 'fb.1.' + attr.ts + '.' + attr.fbclid : '')
+      };
+      if (extra) for (var k in extra) d[k] = extra[k];
+      return d;
+    }
+
+    function track(name, extra){
+      if (window.fbq) fbq('trackCustom', name, eventData(extra));
+    }
+
+    /* ---------- 2. Evento MQL no clique do CTA ---------- */
     document.querySelectorAll('[data-cta="mql"]').forEach(function(el){
       el.addEventListener('click', function(){
-        fireMQL();
+        track('MQL', { value: 497.00, currency: 'BRL' });
       });
     });
-  })();
-</script>
 
-<!-- ===== Eventos de scroll por seção (dispara 1x cada) ===== -->
-<script>
-  (function(){
-    // mapeia id do elemento -> nome do evento no Facebook
+    /* ---------- 3. Eventos de scroll por seção (1x cada) ---------- */
     var sections = {
       'ev-prova': 'ViewProva',
       'ev-pix':   'ViewPix',
       'ev-preco': 'ViewPreco',
       'ev-cta':   'ViewCTA'
     };
-
     var fired = {};
 
-    function track(evt){
-      if (fired[evt]) return;
-      fired[evt] = true;
-      if (window.fbq) {
-        fbq('trackCustom', evt, {
-          content_name: 'DreamLife - MoneyMark'
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            var evt = sections[entry.target.id];
+            if (evt && !fired[evt]) { fired[evt] = true; track(evt); }
+            io.unobserve(entry.target);
+          }
         });
-      }
-    }
+      }, { threshold: 0.4 });
 
-    if (!('IntersectionObserver' in window)) return;
-
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting) {
-          var evt = sections[entry.target.id];
-          if (evt) track(evt);
-          io.unobserve(entry.target); // garante disparo único
-        }
+      Object.keys(sections).forEach(function(id){
+        var el = document.getElementById(id);
+        if (el) io.observe(el);
       });
-    }, { threshold: 0.4 }); // 40% da seção visível
-
-    Object.keys(sections).forEach(function(id){
-      var el = document.getElementById(id);
-      if (el) io.observe(el);
-    });
+    }
   })();
 </script>
 
