@@ -1,2 +1,7 @@
 .DS_Store
 cloudflare-worker.js
+
+# Arquivos de trabalho/internos (NÃO publicar)
+.claude/
+mockups/
+*.docx
