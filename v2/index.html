@@ -13,7 +13,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 
 <!-- ===== Meta Pixel ===== -->
 <script>
@@ -47,6 +49,18 @@ src="https://www.facebook.com/tr?id=2805654709772920&ev=PageView&noscript=1"/></
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+
+/* Barra de progresso de leitura */
+#read-progress{
+  position:fixed;
+  top:0;left:0;
+  height:3px;
+  width:0;
+  background:var(--accent);
+  z-index:9999;
+  transition:width .08s linear;
+  will-change:width;
+}
 body{
   background:var(--stage);
   font-family:var(--sans);
@@ -424,6 +438,7 @@ ul.bul li::before{
 </style>
 </head>
 <body>
+<div id="read-progress"></div>
 <main class="sheet">
 
   <!-- ===== HEADER ===== -->
@@ -638,9 +653,9 @@ ul.bul li::before{
   <div class="proof-block">
     <h3>01 · Venda de R$3.000</h3>
     <div class="stack tight">
-      <img src="img/prova-3k-1.jpg" alt="Notificação venda R$3.039,36" loading="lazy">
-      <img src="img/prova-3k-2.jpg" alt="PIX R$3.000 recebido" loading="lazy">
-      <img src="img/prova-3k-3.jpg" alt="Venda R$2.999,36 + Boleto R$3.000 no mesmo dia" loading="lazy">
+      <img src="img/prova-3k-1.jpg" alt="Notificação venda R$3.039,36" width="900" height="505" loading="lazy">
+      <img src="img/prova-3k-2.jpg" alt="PIX R$3.000 recebido" width="900" height="505" loading="lazy">
+      <img src="img/prova-3k-3.jpg" alt="Venda R$2.999,36 + Boleto R$3.000 no mesmo dia" width="900" height="505" loading="lazy">
     </div>
     <p>Não é uma venda de R$3 mil que aconteceu uma vez e virou case. É notificação chegando junto com notificação do Instagram — porque virou parte do dia comum.</p>
     <p>Quando a percepção está instalada, a oferta está organizada, a aquisição roda e a decisão chega pronta, o ticket de R$3K para de ser exceção. <strong>Vira o normal da operação.</strong></p>
@@ -649,7 +664,7 @@ ul.bul li::before{
   <div class="proof-block">
     <h3>02 · Volume não é evento · é histórico</h3>
     <div class="stack compact">
-      <img src="img/prova-volume.jpg" alt="Hotmart R$409.579,13 + Guru R$130.902,71" loading="lazy">
+      <img src="img/prova-volume.jpg" alt="Hotmart R$409.579,13 + Guru R$130.902,71" width="900" height="900" loading="lazy">
     </div>
     <p>Mais de <strong>R$540 mil em vendas</strong> entre Hotmart e Guru. <strong>Mil e quinhentas transações</strong> somadas entre as duas plataformas.</p>
     <p>Isso não acontece com sorte. Acontece quando a arquitetura está montada e a operação roda independente de você empurrar cada venda.</p>
@@ -658,7 +673,7 @@ ul.bul li::before{
   <div class="proof-block">
     <h3>03 · A conversão que a arquitetura entrega</h3>
     <div class="stack compact">
-      <img src="img/prova-conversao.jpg" alt="R$4.863,51 · 15 vendas · 43 cliques · 1 dia" loading="lazy">
+      <img src="img/prova-conversao.jpg" alt="R$4.863,51 · 15 vendas · 43 cliques · 1 dia" width="1000" height="896" loading="lazy">
     </div>
     <p><strong>15 vendas em 43 cliques. Em um dia.</strong></p>
     <p>Conversão acima de 30% num funil de venda direta não é tráfego. É percepção instalada antes do clique acontecer.</p>
@@ -668,9 +683,9 @@ ul.bul li::before{
   <div class="proof-block">
     <h3>04 · Histórico mensal</h3>
     <div class="stack tight">
-      <img src="img/resultado-1.jpg" alt="Resultado mensal com upsell" loading="lazy">
-      <img src="img/resultado-2.jpg" alt="Resultado mensal com upsell" loading="lazy">
-      <img src="img/resultado-3.jpg" alt="Resultado mensal com upsell" loading="lazy">
+      <img src="img/resultado-1.jpg" alt="Resultado mensal com upsell" width="1000" height="434" loading="lazy">
+      <img src="img/resultado-2.jpg" alt="Resultado mensal com upsell" width="1000" height="387" loading="lazy">
+      <img src="img/resultado-3.jpg" alt="Resultado mensal com upsell" width="1000" height="425" loading="lazy">
     </div>
     <p>Faturamento acima de <strong>R$180K em meses diferentes</strong>. CAC controlado, ROAS na casa dos dois dígitos. Não é mês fora da curva — é o que o sistema sustenta quando está rodando.</p>
   </div>
@@ -681,9 +696,9 @@ ul.bul li::before{
   <h2>Cada um desses 4 métodos, quando vendido individualmente, custa entre R$2K e R$5K. Implementado via consultoria, entre R$10K e R$30K.</h2>
 
   <div class="stack tight">
-    <img src="img/pix-1.jpg" alt="Prova de pagamento de programa individual" loading="lazy">
-    <img src="img/pix-2.jpg" alt="Prova de pagamento de programa individual" loading="lazy">
-    <img src="img/pix-3.jpg" alt="Prova de pagamento de programa individual" loading="lazy">
+    <img src="img/pix-1.jpg" alt="Prova de pagamento de programa individual" width="1000" height="562" loading="lazy">
+    <img src="img/pix-2.jpg" alt="Prova de pagamento de programa individual" width="1000" height="562" loading="lazy">
+    <img src="img/pix-3.jpg" alt="Prova de pagamento de programa individual" width="1000" height="562" loading="lazy">
   </div>
 
   <p>Não estou inventando esse dado. É o que eu cobro hoje por programas focados em apenas um desses pilares — posicionamento, oferta, aquisição, conversão.</p>
@@ -922,6 +937,23 @@ ul.bul li::before{
       var el = document.getElementById(id);
       if (el) io.observe(el);
     });
+  }
+
+  // 4) Barra de progresso de leitura (leve, rAF + listener passivo)
+  var bar = document.getElementById('read-progress');
+  if (bar) {
+    var ticking = false;
+    function updateBar(){
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      var pct = max > 0 ? (h.scrollTop || document.body.scrollTop) / max * 100 : 0;
+      bar.style.width = pct + '%';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if (!ticking) { requestAnimationFrame(updateBar); ticking = true; }
+    }, { passive: true });
+    updateBar();
   }
 })();
 </script>
