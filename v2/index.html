@@ -46,7 +46,7 @@ src="https://www.facebook.com/tr?id=2805654709772920&ev=PageView&noscript=1"/></
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{
   background:var(--stage);
   font-family:var(--sans);
@@ -549,7 +549,7 @@ ul.bul li::before{
   <!-- ===== CTA INTERMEDIÁRIO ===== -->
   <p class="soft" style="margin-top:32px">Se isso já fez sentido pra você, não precisa ler o resto da página.</p>
   <div class="cta-wrap" id="ev-cta1">
-    <a class="cta" href="https://wa.me/5511986996261?text=Quero%20Desbloquear%20Meu%20Acesso!" data-cta="mql">
+    <a class="cta" href="#ev-preco" data-cta="ver-oferta">
       Quero criar minha MoneyMark™ <span class="arrow">→</span>
     </a>
   </div>
@@ -877,10 +877,20 @@ ul.bul li::before{
   // 1) PageView com event_id (não chamamos no <head> pra ter o id)
   track('PageView');
 
-  // 2) MQL no clique de qualquer CTA
+  // 2) MQL no clique dos CTAs que vão pro WhatsApp
   document.querySelectorAll('[data-cta="mql"]').forEach(function(el){
     el.addEventListener('click', function(){
       track('MQL', { value: 497.00, currency: 'BRL' });
+    });
+  });
+
+  // 2b) CTA do meio: rola até a oferta + dispara evento intermediário
+  document.querySelectorAll('[data-cta="ver-oferta"]').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.preventDefault();
+      track('ClicouVerOferta');
+      var alvo = document.getElementById('ev-preco');
+      if (alvo) alvo.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
@@ -895,6 +905,9 @@ ul.bul li::before{
   var fired = {};
 
   if ('IntersectionObserver' in window) {
+    // threshold 0 + rootMargin: dispara quando o topo do elemento cruza
+    // ~75% da tela. Funciona mesmo com seções mais altas que a viewport
+    // (que nunca atingiriam 40% visível de uma vez).
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if (entry.isIntersecting) {
@@ -903,7 +916,7 @@ ul.bul li::before{
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.4 });
+    }, { threshold: 0, rootMargin: '0px 0px -25% 0px' });
 
     Object.keys(sections).forEach(function(id){
       var el = document.getElementById(id);
