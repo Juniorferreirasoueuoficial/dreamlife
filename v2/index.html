@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FAFAF7">
 <title>O Plano DreamLife — MoneyMark™</title>
-<meta name="description" content="O sistema que faz vendas de R$3K, R$10K e R$30K acontecer em silêncio — enquanto o resto do mercado ainda empurra cada call.">
+<meta name="description" content="Por que um profissional com PhD ganha R$8K enquanto um expert sem diploma ganha +R$80K do quarto de casa? A diferença não é o que você sabe — é como está organizado.">
 
 <meta property="og:title" content="O Plano DreamLife — MoneyMark™">
-<meta property="og:description" content="O sistema que faz vendas de R$3K a R$30K acontecer em silêncio.">
+<meta property="og:description" content="A diferença entre você e o expert do quarto não é o quanto cada um sabe. É como o que cada um sabe está organizado.">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,6 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '2805654709772920');
 </script>
-<!-- PageView é disparado pelo bloco de tracking (com event_id) -->
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=2805654709772920&ev=PageView&noscript=1"/></noscript>
 
@@ -50,7 +49,6 @@ src="https://www.facebook.com/tr?id=2805654709772920&ev=PageView&noscript=1"/></
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 
-/* Barra de progresso de leitura */
 #read-progress{
   position:fixed;
   top:0;left:0;
@@ -78,7 +76,6 @@ body{
   min-height:100vh;
 }
 
-/* ===== Header bar (estilo documento) ===== */
 .doc-head{
   display:flex;
   justify-content:space-between;
@@ -101,6 +98,7 @@ body{
   text-transform:none;
   font-weight:400;
 }
+.doc-head .right .status{text-transform:none;letter-spacing:.04em}
 .doc-head .status::before{
   content:'';
   display:inline-block;
@@ -112,11 +110,10 @@ body{
   opacity:.65;
 }
 
-/* ===== Tipografia ===== */
 h1.hero{
   font-family:var(--serif);
-  font-size:2.7rem;
-  line-height:1.15;
+  font-size:2.5rem;
+  line-height:1.18;
   font-weight:500;
   letter-spacing:-0.01em;
   margin:0 0 22px;
@@ -127,7 +124,7 @@ h1.hero{
   font-size:1.05rem;
   line-height:1.55;
   color:var(--ink-soft);
-  margin-bottom:48px;
+  margin-bottom:40px;
 }
 
 h2{
@@ -178,7 +175,6 @@ em{font-style:italic}
 .rule.soft{border-top:1px solid var(--rule-soft);margin:32px 0}
 .rule.accent{border-top:2px solid var(--accent);margin:48px 0}
 
-/* ===== Pilares / Métodos (cards numerados) ===== */
 .pillar{
   border-top:1px solid var(--rule);
   padding:26px 0 6px;
@@ -214,7 +210,6 @@ em{font-style:italic}
 }
 .pillar p{margin-bottom:14px}
 
-/* ===== Setas conectoras ===== */
 .arrows{
   background:var(--rule-soft);
   padding:24px 26px;
@@ -227,7 +222,6 @@ em{font-style:italic}
 }
 .arrows .item{display:block;margin:6px 0}
 
-/* ===== Bloco "Você sai com" ===== */
 .delivers{
   background:var(--rule-soft);
   border-radius:4px;
@@ -239,9 +233,7 @@ em{font-style:italic}
 }
 .delivers strong{color:var(--accent-ink);font-weight:600}
 
-/* ===== Prova (imagens) ===== */
-.proof-block{margin:38px 0 12px}
-.proof-block h3{margin-top:10px}
+.proof-block{margin:32px 0 12px}
 .stack{
   display:flex;
   flex-direction:column;
@@ -260,17 +252,16 @@ em{font-style:italic}
 .stack.compact img{max-width:440px}
 .stack.tight{gap:10px}
 
-.proof-caption{
-  font-family:var(--mono);
-  font-size:.78rem;
-  letter-spacing:.04em;
-  color:var(--ink-faint);
-  text-align:center;
-  margin-top:-6px;
-  margin-bottom:8px;
+.hero-img{margin:0 0 40px}
+.hero-img img{
+  max-width:100%;
+  width:100%;
+  height:auto;
+  border-radius:10px;
+  display:block;
+  box-shadow:0 6px 24px rgba(20,20,15,.10);
 }
 
-/* ===== Preço / oferta ===== */
 .price-box{
   border:1.5px solid var(--accent);
   background:var(--paper);
@@ -301,13 +292,19 @@ em{font-style:italic}
   text-decoration-thickness:2px;
   text-underline-offset:5px;
 }
+.price-box .anchor{
+  font-family:var(--sans);
+  font-size:.9rem;
+  color:var(--ink-faint);
+  margin-bottom:14px;
+  line-height:1.5;
+}
 .price-box .terms{
   font-family:var(--sans);
   font-size:.92rem;
   color:var(--ink-soft);
 }
 
-/* ===== Checklist da oferta ===== */
 .checklist{list-style:none;margin:18px 0;padding:0}
 .checklist li{
   position:relative;
@@ -329,7 +326,6 @@ em{font-style:italic}
 .checklist li.bonus::before{content:'+'}
 .checklist li strong{display:block;margin-bottom:2px;font-weight:600}
 
-/* ===== CTAs ===== */
 .cta-wrap{margin:36px 0 18px;text-align:center}
 .cta{
   display:inline-block;
@@ -358,7 +354,6 @@ em{font-style:italic}
   color:var(--ink-faint);
 }
 
-/* ===== Listas com bullet quadrado ===== */
 ul.bul{list-style:none;margin:14px 0 18px;padding:0}
 ul.bul li{
   position:relative;
@@ -375,7 +370,28 @@ ul.bul li::before{
   opacity:.7;
 }
 
-/* ===== Bloco de assinatura final ===== */
+.callout{
+  font-family:var(--serif);
+  font-size:1.35rem;
+  line-height:1.35;
+  font-weight:500;
+  color:var(--ink);
+  margin:28px 0;
+  padding-left:18px;
+  border-left:3px solid var(--accent);
+}
+
+.upper{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:.95rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--accent-ink);
+  margin:28px 0 16px;
+  line-height:1.45;
+}
+
 .signoff{
   margin-top:48px;
   padding:28px 0 0;
@@ -387,7 +403,6 @@ ul.bul li::before{
   color:var(--ink-soft);
 }
 
-/* ===== Caixa de garantia ===== */
 .warranty{
   background:var(--rule-soft);
   padding:22px 24px;
@@ -403,7 +418,24 @@ ul.bul li::before{
   margin-bottom:10px;
 }
 
-/* ===== Footer ===== */
+.paths{margin:28px 0}
+.path{
+  border:1px solid var(--rule);
+  border-radius:4px;
+  padding:20px 22px;
+  margin-bottom:16px;
+}
+.path.highlight{border:1.5px solid var(--accent);background:var(--paper)}
+.path .tag{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--accent-ink);
+  margin-bottom:10px;
+}
+.path p{margin-bottom:0;font-size:.98rem}
+
 .foot{
   margin-top:60px;
   padding-top:24px;
@@ -417,20 +449,20 @@ ul.bul li::before{
   justify-content:space-between;
 }
 
-/* ===== Mobile ===== */
 @media (max-width:680px){
   .sheet{padding:36px 22px 90px}
   .doc-head{font-size:9.5px;letter-spacing:.14em}
   .doc-head .right{font-size:9.5px}
-  h1.hero{font-size:1.9rem}
-  .subhero{font-size:.98rem;margin-bottom:36px}
-  h2{font-size:1.45rem;margin:42px 0 18px}
+  h1.hero{font-size:1.75rem}
+  .subhero{font-size:.98rem;margin-bottom:32px}
+  h2{font-size:1.4rem;margin:42px 0 18px}
   h3{font-size:.72rem}
   h4{font-size:1.15rem}
   p{font-size:.99rem;line-height:1.65}
   .arrows{font-size:1rem;padding:20px}
+  .callout{font-size:1.15rem}
   .price-box{padding:24px 20px}
-  .price-box .value{font-size:1.85rem}
+  .price-box .value{font-size:1.7rem}
   .cta{display:block;width:100%;padding:18px 20px;font-size:.95rem}
   .stack.compact img{max-width:100%}
   .foot{flex-direction:column;gap:6px}
@@ -441,88 +473,142 @@ ul.bul li::before{
 <div id="read-progress"></div>
 <main class="sheet">
 
-  <!-- ===== HEADER ===== -->
   <header class="doc-head">
-    <div>MEMORANDO · v1.0</div>
-    <div class="right">
-      <div><span class="status">DOCUMENTO ATIVO</span></div>
-    </div>
+    <div>MEMORANDO</div>
+    <div class="right"><span class="status">documento ativo</span></div>
   </header>
 
   <!-- ===== HERO ===== -->
-  <h1 class="hero">O sistema que faz as vendas de R$3K, R$10K e R$30K acontecer em silêncio — enquanto o resto do mercado ainda empurra cada call.</h1>
-  <p class="subhero">Como eu substituí agenda lotada, time inflado e call de vendas por uma engenharia de 4 etapas que gera venda antes da conversa começar — e como você pode começar a montar a sua hoje mesmo.</p>
+  <h1 class="hero">Por que um profissional com PhD ganha R$8K — enquanto um expert sem diploma ganha +R$80K explicando o que ele faz do quarto de casa?</h1>
+  <p class="subhero">E como reorganizar sua Experti$e pra que cada hora da sua operação vire venda de R$5K, R$10K e até R$30K — em vez de mais peso na sua agenda.</p>
+
+  <div class="hero-img">
+    <img src="img/aeroporto.jpg" alt="" width="825" height="1100">
+  </div>
 
   <hr class="rule">
 
-  <!-- ===== DIAGNÓSTICO DO PROBLEMA ===== -->
-  <p>Você não montou um negócio pra continuar sendo o gargalo dele.</p>
-  <p>Mas é isso que acontece todos os dias.</p>
-  <p>A semana começa com call. A call termina com mais uma decisão que só você pode tomar. A decisão vira tarefa. A tarefa empurra outras três.</p>
-  <p>Na sexta-feira, o que sobrou de você não é o expert estratégico que construiu a reputação — é o operacional cansado tentando não deixar nada cair.</p>
+  <!-- ===== ABERTURA: cena de sexta ===== -->
+  <p>Você abre o WhatsApp na sexta-feira. 14 conversas em aberto.</p>
+  <p>Algumas você responde. Outras você adia desde quarta.</p>
+  <p>Olha o extrato — o mês está fechando em R$5K, R$7K, às vezes R$10K nos meses bons.</p>
+  <p>Não está mal pra alguém que começou do zero. Mas você sabe a conta: cada cliente desses passou por <strong>você</strong>.</p>
+  <p>Cada proposta, cada call, cada ajuste, cada decisão. Tirar você do meio por uma semana e a operação não anda.</p>
 
-  <h3>Olha de fora, parece sucesso.</h3>
-  <p>Faturamento entrando. Cliente entregando depoimento. Indicação chegando.</p>
-  <p><strong>Olha de dentro, é outra coisa.</strong></p>
-  <p>É você sendo a única pessoa que sabe onde está cada arquivo, cada combinado, cada decisão dessa semana.</p>
-  <p>É a operação inteira parando se você tira três dias fora.</p>
-  <p>É a sensação silenciosa de que tudo que você construiu funciona — mas funciona porque você não para de empurrar.</p>
+  <p class="upper">Olha de fora, parece tudo bem.</p>
 
-  <hr class="rule soft">
+  <p>Aí você abre o Instagram. E vê.</p>
+  <p>Gente da sua área — que você acompanha há meses — postando print de R$80K, R$120K, R$200K.</p>
+  <p>Alguns você sabe que não estudaram metade do que você estudou. Outros começaram depois de você. Outros nem têm o currículo que você tem.</p>
+  <p>Não é inveja barata. É uma pergunta que você não consegue fechar: <strong>"como assim?"</strong></p>
 
-  <p>Não é falta de método. Você já estudou método demais.</p>
-  <p>Não é falta de esforço. Você é dos que mais se esforçam.</p>
-  <p>É que a <strong>estrutura por trás do que você vende não foi projetada pra existir sem você.</strong></p>
-  <p>Foi montada peça por peça, no improviso, ao longo dos anos — e cada peça nova ficou pendurada em alguma decisão sua, em algum critério que só você sabe aplicar.</p>
-  <p>Você não tem um negócio. Você tem uma extensão de você que cobra clientes.</p>
-  <p>É o expert que sustenta a operação no ombro. Não o dono que a operação sustenta de volta.</p>
-  <p class="soft">E a pergunta que ninguém te fez — que talvez você também tenha evitado fazer — é mais incômoda que qualquer resposta fácil:</p>
-  <h4>Por que cada peça que você adiciona ao negócio acaba pendurada em você de novo?</h4>
+  <p>E não é falta de skill. Você acumulou competência por 5, 10, 15 anos. Cursos, certificações, pós-graduações, experiência de campo.</p>
+  <p>Não é falta de esforço — você é dos que mais se dedicam.</p>
+  <p>É outra coisa, que ninguém te explicou que precisava construir.</p>
+
+  <p>E o pior: quanto mais você aprende, mais isso se inverte.</p>
+  <ul class="bul">
+    <li>Você fica melhor no que faz, ganha proporcionalmente menos.</li>
+    <li>Você vira referência técnica, perde noite respondendo dúvidas que outros ganham dinheiro.</li>
+    <li>Você se especializa mais — e enquanto isso, mais uma pessoa que você segue acabou de postar print de mês fechando em R$120K.</li>
+  </ul>
+  <p>O expert do quarto de casa não vive isso. Você vive. E essa é a única diferença real entre vocês.</p>
 
   <hr class="rule accent">
 
-  <!-- ===== VIRADA PESSOAL ===== -->
-  <h2>Eu fui o cara que sustentava a operação no ombro.</h2>
-  <p>Quanto mais eu entregava bem, mais o negócio dependia de mim entregar melhor ainda.</p>
-  <p>Cada vitória reforçava a estrutura que me prendia.</p>
-  <p>Eu trabalhava muito porque eu era a operação inteira.</p>
-  <p>E quando pensava em escalar, esbarrava sempre na mesma parede invisível — escalar significava clonar a única coisa que não tinha como ser clonada, que era eu.</p>
+  <!-- ===== A OUTRA TERÇA ===== -->
+  <h2>Agora imagina outra terça-feira.</h2>
+  <p>Você acorda sem despertador. Sem reunião marcada de 9h.</p>
+  <p>Abre o WhatsApp — mas dessa vez tem 2 conversas. Não 14. Você responde rápido, em 12 minutos. Fecha.</p>
+  <p>Vai almoçar. Senta com sua esposa. Põe um episódio de série de fundo. No meio do almoço, o celular vibra.</p>
 
-  <h3>Teve mês da estrutura antiga que gerei R$193 mil em faturamento.</h3>
-  <p>Era o número que dava orgulho. Mas pra fechar R$193 mil eu tinha time, tinha sócio, tinha despesa fixa, tinha margem espremida no fim do mês — porque cada real faturado vinha com um custo escondido de operação, gestão, retrabalho, cliente difícil que ninguém queria atender mas tinha que ser atendido.</p>
-  <p>R$193 mil entrando significava muito menos do que parecia saindo.</p>
-  <p>E mais importante — significava eu, todo dia, sustentando uma estrutura que precisava de mim pra existir.</p>
+  <div class="proof-block">
+    <div class="stack tight">
+      <img src="img/prova-3k-1.jpg" alt="Venda Realizada R$3.039,36" width="900" height="505" loading="lazy">
+      <img src="img/prova-3k-2.jpg" alt="PIX R$3.000 recebido" width="900" height="505" loading="lazy">
+      <img src="img/prova-3k-3.jpg" alt="Venda R$2.999,36 + boleto no mesmo dia" width="900" height="505" loading="lazy">
+    </div>
+  </div>
 
-  <h3>Hoje eu opero sozinho. Sem sócio. Sem time fixo. Sem operação que vive na minha agenda.</h3>
-  <p>E a margem do que entra fica acima de <strong>80%</strong>.</p>
-  <p>Saí da operação. Construí o que opera.</p>
-  <p>O que mudou não foi sorte, mercado ou esforço. <strong>Foi a estrutura por baixo do que eu vendia.</strong></p>
+  <p>A notificação chega junto com a notificação do Instagram.</p>
+  <p>Não é venda de R$3 mil que aconteceu uma vez e virou case. É a notificação chegando no meio do almoço — porque virou parte do dia comum.</p>
+  <p>Você olha. Sorri. Continua almoçando.</p>
+  <p>À tarde, você lê. Refina um sistema seu. Decide o próximo passo. Não atende reunião. Não apaga incêndio. Não tem incêndio pra apagar.</p>
+  <p>Às 18h você fecha o laptop. Sua semana inteira teve 14 horas de trabalho. Não 80. E o mês está fechando em <strong>R$60K, R$80K, às vezes mais</strong>.</p>
+
+  <ul class="bul">
+    <li>Você para de produzir conteúdo no automático esperando que alguém te enxergue.</li>
+    <li>Você para de empurrar call em desconhecido.</li>
+    <li>Você para de cobrar hora.</li>
+    <li>Você para de explicar no Story por que você é diferente.</li>
+    <li>Você para de querer virar persona pública pra cobrar mais.</li>
+  </ul>
+  <p>Não é sobre virar expert do quarto de casa. É sobre ter o resultado do expert do quarto — mantendo a sua expertise inteira — e ainda tendo a tarde livre pra usar com o que te importa.</p>
 
   <hr class="rule">
 
-  <!-- ===== CONCEITO MONEYMARK ===== -->
-  <h2>A diferença não está no quanto você sabe. Está em como o que você sabe está organizado.</h2>
-  <p><strong>Expertise solta</strong> — viva só na sua cabeça, nas calls, nas entregas que dependem de você — vende tempo. E tempo, todo mundo já entendeu, tem teto.</p>
-  <p><strong>Expertise organizada</strong> — com lógica de entrega, lugar próprio dentro de uma estrutura — vende sem precisar te empurrar pra cada conversa.</p>
-  <p>Uma trabalha pra você. A outra trabalha você.</p>
+  <!-- ===== VIRADA PESSOAL ===== -->
+  <h2>Quem te explica isso esteve exatamente do outro lado.</h2>
+  <p>Eu acumulei competência por mais de uma década. Trabalhava 12, 14 horas por dia.</p>
+  <p>Era referência, respondia dúvida no WhatsApp de madrugada, perdia noite pra entregar projeto que outros monetizavam com metade da minha base.</p>
+  <p>Teve mês em que fechei R$193 mil em faturamento — e tinha margem espremida no fim do mês porque cada real entrando vinha com custo escondido de operação, gestão, retrabalho, cliente difícil que tinha que ser atendido.</p>
+  <p>R$193 mil entrando significava muito menos do que parecia saindo.</p>
+  <p>E mais importante: significava <strong>eu</strong>, todo dia, sustentando uma estrutura que precisava de mim pra existir.</p>
 
-  <p>O que muda quando essa organização acontece não é mais um curso pra consumir, mais um funil pra montar, mais um método pra decorar.</p>
-  <p>É outra coisa. É um <strong>ativo</strong>.</p>
-  <p>Um ativo construído sobre o que você já sabe — mas operando com lógica própria, fora do seu esforço manual.</p>
+  <div class="proof-block">
+    <div class="stack tight">
+      <img src="img/resultado-1.jpg" alt="Resultado mensal acima de R$180K" width="1000" height="434" loading="lazy">
+      <img src="img/resultado-2.jpg" alt="Resultado mensal acima de R$180K" width="1000" height="387" loading="lazy">
+      <img src="img/resultado-3.jpg" alt="Resultado mensal acima de R$180K" width="1000" height="425" loading="lazy">
+    </div>
+  </div>
+
+  <p class="upper">Hoje eu opero sozinho. Sem sócio. Sem time fixo. Sem operação que vive na minha agenda.</p>
+  <p>E a margem do que entra fica acima de <strong>80%</strong>.</p>
+  <p>A notificação de R$3 mil que você acabou de ver lá em cima é margem direta. Não é faturamento bruto com 7 pessoas vivendo em cima.</p>
+  <p>O que mudou não foi sorte, mercado ou esforço. <strong>Foi a estrutura por baixo do que eu vendia.</strong></p>
+
+  <p>Tudo isso vem de uma única descoberta. Uma estrutura que ninguém te explicou que precisava construir. E que, uma vez construída, faz o que você já sabe valer 10 vezes mais — sem você precisar trabalhar 10 vezes mais.</p>
+
+  <hr class="rule accent">
+
+  <!-- ===== CONCEITO ===== -->
+  <h2>A diferença não está no quanto você sabe. Está em como o que você sabe está organizado.</h2>
+  <p>Não é falta de método. Não é falta de oferta. Não é falta de tráfego. Não é falta de skill. É a forma como tudo isso está organizado por baixo.</p>
+  <p>Sua Experti$e está <strong>solta</strong>. Vive na sua cabeça. Vive nas suas calls. Vive nas suas entregas. Cada cliente novo te força a reconstruir o argumento, improvisar o preço, justificar o escopo, empurrar o fechamento.</p>
+  <p>A do expert está <strong>organizada</strong>. Tem lugar próprio. Roda sem ele empurrar. Vende sem ele estar presente em cada conversa.</p>
+
+  <p class="callout">É a mesma diferença entre ter um carro guardado na garagem — e o mesmo carro rodando como uber pela cidade, gerando receita sem você dirigir cada corrida.</p>
+
+  <p>O carro é o mesmo. A expertise é a mesma. O que muda é a estrutura por baixo, que transforma uma <strong>posse</strong> em <strong>ativo</strong>.</p>
+  <p>Quando isso acontece, sua expertise para de ser algo que você vende quando consegue — e vira algo que vende sozinha enquanto você decide o próximo passo.</p>
+  <p>Não é mais um curso pra consumir. Não é mais um funil pra montar. Não é mais um método pra decorar. É outra coisa. É um <strong>ativo</strong>.</p>
 
   <h3>Eu chamo de MoneyMark™.</h3>
-  <p>Não porque é nome bonito. Porque é exatamente isso que ela faz: transforma expertise em algo que carrega valor de mercado por conta própria, vende entre R$3K e R$30K por venda, e para de depender de você estar presente em cada etapa pra acontecer.</p>
+  <p>Não porque o nome é bonito. Porque é exatamente isso que ela faz: transforma expertise em algo que carrega valor de mercado por conta própria, vende entre R$3K e R$30K por venda, e para de depender de você estar presente em cada etapa pra acontecer.</p>
+
+  <p>E aqui é importante separar duas coisas que parecem iguais e não são.</p>
+  <p>Uma coisa é construir <strong>marca pessoal</strong> pra cobrar mais — postar mais, aparecer mais, virar persona pública, monetizar audiência.</p>
+  <p>Outra coisa é construir <strong>arquitetura</strong> que vende sem exigir que você apareça sempre — estrutura por baixo do que você vende, que gera resultado mesmo quando você não está na call, não está respondendo no Direct.</p>
+  <p><strong>MoneyMark™ é a segunda. Não a primeira.</strong></p>
+
+  <div class="proof-block">
+    <div class="stack compact">
+      <img src="img/prova-volume.jpg" alt="Mais de R$540 mil em vendas · 1.500 transações entre Hotmart e Guru" width="900" height="900" loading="lazy">
+    </div>
+  </div>
+  <p>Isso não é resultado de sorte ou de tráfego pesado. É resultado de arquitetura rodando — independente de empurrar cada venda.</p>
 
   <hr class="rule accent">
 
   <!-- ===== 4 PILARES ===== -->
   <h2 id="ev-pilares">Uma MoneyMark™ se constrói sobre 4 pilares funcionando ao mesmo tempo.</h2>
-  <p class="soft">Cada um resolve um pedaço diferente do que faz alguém escolher comprar de você por R$15K em vez de pagar R$497 pra outra pessoa.</p>
+  <p class="soft">Cada um resolve um pedaço diferente do que faz alguém comprar de você por R$15K em vez de pagar R$497 pra outra pessoa.</p>
 
   <div class="pillar">
     <div class="num">PILAR 01</div>
-    <h4>PO$ICIONAR <span class="sub">Arquitetura de Percepção de Valor</span></h4>
-    <p>Antes de qualquer venda acontecer, o mercado precisa ter criado uma percepção específica e emocional sobre você. Não é feed bonito nem frase de autoridade na bio. É engenharia — linha por linha, pelo que você diz, pelo que não diz, pela ordem em que aparece.</p>
+    <h4>POSICIONAR <span class="sub">Arquitetura de Percepção de Valor</span></h4>
+    <p>Antes de qualquer venda acontecer, o mercado precisa ter criado uma percepção específica e emocional sobre você. Não é feed bonito nem frase de efeito na bio. É engenharia — linha por linha, pelo que você diz, pelo que não diz, pela ordem em que aparece.</p>
     <p><strong>Sem ela,</strong> você entra na caixinha mental do cliente como mais um. É comparado por preço. Esquecido na semana seguinte.</p>
     <p><strong>Com ela,</strong> o cliente chega na conversa de venda já tendo decidido. O preço para de ser objeção porque a percepção de valor já está instalada antes da call começar.</p>
   </div>
@@ -530,7 +616,7 @@ ul.bul li::before{
   <div class="pillar">
     <div class="num">PILAR 02</div>
     <h4>EXPERTI$E <span class="sub">Engenharia de Oferta como Ativo</span></h4>
-    <p>Percepção sem oferta clara vira autoridade que não converte. Tem audiência, tem reconhecimento — mas a venda continua dependendo de você improvisar argumento, ajustar preço, justificar entrega.</p>
+    <p>Percepção sem oferta clara vira influencer que só gera view e não venda. Tem audiência, tem reconhecimento — mas a venda continua dependendo de você improvisar argumento, ajustar preço, justificar entrega.</p>
     <p><strong>Sem ela,</strong> você cobra pelo que entrega — e o mercado sempre vai achar caro, porque entrega é confusão com peças soltas.</p>
     <p><strong>Com ela,</strong> você cobra pela transformação — e o mercado entende por que vale mais. O preço deixa de ser opinião. Vira consequência da arquitetura.</p>
   </div>
@@ -546,7 +632,7 @@ ul.bul li::before{
   <div class="pillar">
     <div class="num">PILAR 04</div>
     <h4>FRAMEWORK DE DECISÃO</h4>
-    <p>Lead qualificado chegando de funil sem framework de decisão vira call de uma hora que termina em "vou pensar". Não porque o lead é ruim. Porque a decisão de comprar R$15K não se constrói durante a call — se constrói antes dela.</p>
+    <p>Lead qualificado chegando sem framework de decisão vira call de uma hora que termina em "vou pensar". Não porque o lead é ruim. Porque a decisão de comprar R$15K não se constrói durante a call — se constrói antes dela.</p>
     <p><strong>Sem esse framework,</strong> você gasta energia tentando vencer barganha e justificar preço.</p>
     <p><strong>Com ele,</strong> a venda acontece quase em silêncio. O cliente fala mais do que você. E quando você apresenta o investimento, ele já está pensando em quando começar — não em se vale.</p>
   </div>
@@ -561,6 +647,26 @@ ul.bul li::before{
   <p>As quatro juntas formam a MoneyMark™. E quando estão alinhadas, a venda deixa de ser ato de persuasão e gatilhos mentais.</p>
   <h4>Vira consequência óbvia.</h4>
 
+  <hr class="rule">
+
+  <!-- ===== POR QUE NÃO FUNCIONOU ===== -->
+  <h2>Agora você entende por que nada do que tentou escalou.</h2>
+  <ul class="bul">
+    <li>Por que o closer que você contratou não escalou.</li>
+    <li>Por que o funil pago que você montou não converteu.</li>
+    <li>Por que a automação com IA que você implementou não vendeu sozinha.</li>
+    <li>Por que o conteúdo orgânico que você produziu não virou venda.</li>
+  </ul>
+  <p>Não era falta de execução. Era operação boa em cima de estrutura errada. E operação boa em cima de estrutura errada continua sendo uma bosta.</p>
+  <ul class="bul">
+    <li>Closer empurra venda que não foi pré-decidida.</li>
+    <li>Funil capta lead que não foi pré-qualificado pela percepção.</li>
+    <li>IA automatiza mensagem em escala que não foi calibrada na arquitetura.</li>
+    <li>Conteúdo gera atenção que não foi convertida em ativo.</li>
+  </ul>
+  <p>Cada peça funciona quando a estrutura por baixo existe. Sem ela, cada peça opera no vácuo — e você sustenta tudo no ombro.</p>
+  <p><strong>A diferença entre você e quem captura proporcional à expertise nunca foi mais ferramentas. Foi a arquitetura por baixo das ferramentas.</strong></p>
+
   <!-- ===== CTA INTERMEDIÁRIO ===== -->
   <p class="soft" style="margin-top:32px">Se isso já fez sentido pra você, não precisa ler o resto da página.</p>
   <div class="cta-wrap" id="ev-cta1">
@@ -572,18 +678,59 @@ ul.bul li::before{
 
   <hr class="rule accent">
 
-  <!-- ===== O PLANO DREAMLIFE ===== -->
-  <h2 id="ev-metodos">Tudo isso existe como método, processo e entregável.</h2>
-  <p>Os 4 pilares e a forma como se encaixam — com lugar próprio dentro de uma sequência. E com algo concreto pra você sair com ativos nas mãos ao final de cada etapa.</p>
-  <p>É isso que eu organizei no <strong>Plano DreamLife</strong>.</p>
-  <p>Uma sequência guiada de 4 métodos — cada um operando uma camada específica do que constrói uma MoneyMark™ que vende sozinha.</p>
+  <!-- ===== CUSTO DE NÃO DECIDIR (4 camadas) ===== -->
+  <h2>Tem uma conta que quase ninguém faz: quanto custa não decidir.</h2>
+  <p>Adiar essa decisão não é manter as coisas como estão. É escolher ativamente continuar pagando o custo que você já está pagando — só que sem ver o boleto.</p>
+  <p>E o custo tem 4 camadas. Vale fazer a matemática.</p>
+
+  <h3>Em termos financeiros</h3>
+  <p>R$497 dividido por 12 dá R$49 por mês. Esse é o ajuste de preço único, pago no ano inteiro.</p>
+  <p>Cada venda que você fecha hoje por R$497, R$1K, R$2K, poderia estar saindo por R$3K, R$10K, R$15K. Não porque você vai forçar preço, mas porque a percepção e a arquitetura justificariam.</p>
+  <p>São <strong>R$2.500 deixados na mesa por venda</strong>, em média. 4 vendas por mês nesse formato são <strong>R$10 mil que entram menores</strong> do que poderiam entrar.</p>
+  <p class="soft">Não é o que você não ganhou. É o que você ganhou menor do que deveria.</p>
+
+  <h3>Em termos de oportunidade</h3>
+  <p>Enquanto sua expertise continua acumulando, alguém com metade da sua experiência fechou hoje o contrato de R$15K que você não viu passar.</p>
+  <p>Não porque ele é melhor que você. Porque ele tem arquitetura. Você tem expertise.</p>
+  <p>O Instagram que você abriu hoje vai mostrar mais um print de R$80K, R$120K, R$200K daqui a 30 dias. Mais um daqui a 60. Mais um daqui a 90. <strong>Cada print é um espaço que estava aberto e foi ocupado.</strong></p>
+
+  <h3>Em termos de energia</h3>
+  <p>Cada mês sem essa arquitetura é mais um mês competindo na prateleira do preço.</p>
+  <p>Cliente que poderia ter te escolhido por percepção te escolhe por desconto. Lead que poderia ter chegado pré-decidido chega pra negociar. Conversa que poderia ter sido confirmação vira call de uma hora terminando em "vou pensar".</p>
+  <p>Nada disso aparece como prejuízo no extrato. <strong>Aparece como cansaço no fim do mês.</strong> Como aquela sensação de "trabalhei demais pra pouco". Como sexta-feira fechando sem celebração.</p>
+
+  <h3>Em termos de quem você continua sendo</h3>
+  <p>Daqui a 12 meses, se nada mudar, você continua sendo o profissional competente que sustenta a operação no ombro. Continua sendo o que faz a marca dos outros — não a sua.</p>
+  <p>E isso, diferente do dinheiro, não tem como recuperar retroativamente. Os 12 meses passam de um jeito ou de outro. A pergunta é só: sendo quem.</p>
+  <p class="soft">Continuar tentando do jeito antigo te leva exatamente pra onde te levou até agora. Mais closer, mais funil, mais IA, mais conteúdo sustentado no seu ombro.</p>
+
+  <hr class="rule accent">
+
+  <!-- ===== O PLANO / MÉTODOS ===== -->
+  <h2 id="ev-metodos">Tudo isso existe como método, processo e checklists.</h2>
+  <p>Os 4 pilares não são teoria nem framework solto. Eles têm ordem, têm lugar próprio dentro de uma sequência, e cada um termina com algo concreto que você instala antes de seguir pro próximo.</p>
+  <p>É isso que eu organizei no <strong>Plano DreamLife</strong>. Uma sequência guiada de 4 métodos — cada um operando uma camada específica do que constrói uma MoneyMark™ que vende sozinha.</p>
   <p>Você executa um, sai com algo pronto. Executa o próximo, esse algo ganha estrutura. Quando termina o quarto, sua MoneyMark™ está montada — não no slide, no mercado.</p>
+
+  <p>Esses 4 métodos, quando vendidos individualmente por programas focados em apenas um pilar, custam entre R$2.000 e R$5.000 cada. Implementados via consultoria 1-a-1, custam entre R$10.000 e R$30.000.</p>
+
+  <div class="proof-block">
+    <div class="stack tight">
+      <img src="img/pix-1.jpg" alt="PIX R$20.509 recebido" width="1000" height="562" loading="lazy">
+      <img src="img/pix-2.jpg" alt="PIX R$10.000 recebido" width="1000" height="562" loading="lazy">
+      <img src="img/pix-3.jpg" alt="PIX R$10.000 recebido" width="1000" height="562" loading="lazy">
+    </div>
+  </div>
+  <p>Não estou inventando esse dado. É o que eu cobro hoje por programas focados em apenas um desses pilares — posicionamento, oferta, aquisição, conversão.</p>
+  <p>A diferença é que esses programas vendem um pilar de cada vez — e o cliente tentando integrar os 3 sozinho. O Plano DreamLife entrega os 4 construídos pra operarem juntos desde o primeiro passo.</p>
 
   <hr class="rule soft">
 
+  <h3 style="font-size:.85rem">Os 4 métodos, em sequência</h3>
+
   <div class="pillar">
     <div class="num">MÉTODO 01</div>
-    <h4>PO$ICIONAR <span class="sub">Arquitetura de Percepção de Valor</span></h4>
+    <h4>POSICIONAR <span class="sub">Arquitetura de Percepção de Valor</span></h4>
     <p>Como ajustar ou criar a forma como o mercado entende quem você é, o que você resolve e por que só você resolve desse jeito — antes de qualquer call de venda acontecer.</p>
     <p class="soft">Mecanismo do problema, mecanismo da solução, autoridade que justifica seu posicionamento, narrativa que sustenta a tensão, perfil de comunicador, tom e canais de distribuição.</p>
     <div class="delivers"><strong>Você sai com:</strong> seu <em>Canvas de Percepção</em> preenchido — o documento que organiza tudo isso num único lugar e alimenta cada conteúdo, cada call, cada conversa de venda daqui pra frente.</div>
@@ -618,8 +765,7 @@ ul.bul li::before{
   <hr class="rule accent">
 
   <!-- ===== BÔNUS ===== -->
-  <h2>Iniciando hoje, você recebe:</h2>
-  <p>Existem 3 pontos onde a maioria trava na execução. Quem entra pra montar a própria MoneyMark™ recebe 3 aceleradores específicos pra cada um deles.</p>
+  <h2>Iniciando hoje, você recebe junto:</h2>
 
   <div class="pillar">
     <div class="num">BÔNUS 01</div>
@@ -644,125 +790,78 @@ ul.bul li::before{
 
   <hr class="rule accent">
 
-  <!-- ===== PROVA ===== -->
-  <h2 id="ev-prova">Tudo o que você acabou de ler é o que eu opero na minha própria operação atualmente.</h2>
-  <p>E o que já apliquei em parceiros pra gerar resultado deles também.</p>
-  <p>Não tenho turma cheia de aluno aplicando. O método não nasceu de curso que vende o próprio curso — nasceu de execução.</p>
-  <p class="soft">O que você vai ver abaixo é evidência cotidiana de 4 coisas: ticket alto acontece na rotina, volume não é evento isolado, a conversão que essa arquitetura entrega é diferente, e a consistência se sustenta.</p>
-
-  <div class="proof-block">
-    <h3>01 · Venda de R$3.000</h3>
-    <div class="stack tight">
-      <img src="img/prova-3k-1.jpg" alt="Notificação venda R$3.039,36" width="900" height="505" loading="lazy">
-      <img src="img/prova-3k-2.jpg" alt="PIX R$3.000 recebido" width="900" height="505" loading="lazy">
-      <img src="img/prova-3k-3.jpg" alt="Venda R$2.999,36 + Boleto R$3.000 no mesmo dia" width="900" height="505" loading="lazy">
-    </div>
-    <p>Não é uma venda de R$3 mil que aconteceu uma vez e virou case. É notificação chegando junto com notificação do Instagram — porque virou parte do dia comum.</p>
-    <p>Quando a percepção está instalada, a oferta está organizada, a aquisição roda e a decisão chega pronta, o ticket de R$3K para de ser exceção. <strong>Vira o normal da operação.</strong></p>
-  </div>
-
-  <div class="proof-block">
-    <h3>02 · Volume não é evento · é histórico</h3>
-    <div class="stack compact">
-      <img src="img/prova-volume.jpg" alt="Hotmart R$409.579,13 + Guru R$130.902,71" width="900" height="900" loading="lazy">
-    </div>
-    <p>Mais de <strong>R$540 mil em vendas</strong> entre Hotmart e Guru. <strong>Mil e quinhentas transações</strong> somadas entre as duas plataformas.</p>
-    <p>Isso não acontece com sorte. Acontece quando a arquitetura está montada e a operação roda independente de você empurrar cada venda.</p>
-  </div>
-
-  <div class="proof-block">
-    <h3>03 · A conversão que a arquitetura entrega</h3>
-    <div class="stack compact">
-      <img src="img/prova-conversao.jpg" alt="R$4.863,51 · 15 vendas · 43 cliques · 1 dia" width="1000" height="896" loading="lazy">
-    </div>
-    <p><strong>15 vendas em 43 cliques. Em um dia.</strong></p>
-    <p>Conversão acima de 30% num funil de venda direta não é tráfego. É percepção instalada antes do clique acontecer.</p>
-    <p class="soft">É o que o Método 1 (Arquitetura de Percepção) entrega. É o que o Método 4 (Framework de Decisão) entrega. Quando os dois operam juntos, o lead que clica já decidiu antes.</p>
-  </div>
-
-  <div class="proof-block">
-    <h3>04 · Histórico mensal</h3>
-    <div class="stack tight">
-      <img src="img/resultado-1.jpg" alt="Resultado mensal com upsell" width="1000" height="434" loading="lazy">
-      <img src="img/resultado-2.jpg" alt="Resultado mensal com upsell" width="1000" height="387" loading="lazy">
-      <img src="img/resultado-3.jpg" alt="Resultado mensal com upsell" width="1000" height="425" loading="lazy">
-    </div>
-    <p>Faturamento acima de <strong>R$180K em meses diferentes</strong>. CAC controlado, ROAS na casa dos dois dígitos. Não é mês fora da curva — é o que o sistema sustenta quando está rodando.</p>
-  </div>
-
-  <hr class="rule accent">
-
-  <!-- ===== ANCORAGEM ===== -->
-  <h2>Cada um desses 4 métodos, quando vendido individualmente, custa entre R$2K e R$5K. Implementado via consultoria, entre R$10K e R$30K.</h2>
-
-  <div class="stack tight">
-    <img src="img/pix-1.jpg" alt="Prova de pagamento de programa individual" width="1000" height="562" loading="lazy">
-    <img src="img/pix-2.jpg" alt="Prova de pagamento de programa individual" width="1000" height="562" loading="lazy">
-    <img src="img/pix-3.jpg" alt="Prova de pagamento de programa individual" width="1000" height="562" loading="lazy">
-  </div>
-
-  <p>Não estou inventando esse dado. É o que eu cobro hoje por programas focados em apenas um desses pilares — posicionamento, oferta, aquisição, conversão.</p>
-  <p>A diferença é que esses programas vendem um pilar de cada vez — e o cliente tentando integrar os 3 sozinho. O <strong>Plano DreamLife</strong> entrega os 4 construídos pra operarem juntos desde o primeiro passo.</p>
-  <p>E o preço de entrada não foi escolhido pra competir com esses programas individuais.</p>
-  <p class="soft">Foi escolhido pra que você consiga ser um case sem ter que desembolsar esse valor — e depois vir para programas diretamente comigo. Puro interesse: quanto mais resultado você tiver, mais eu serei bem pago por isso.</p>
-
-  <hr class="rule">
-
-  <!-- ===== CUSTO DE NÃO ENTRAR ===== -->
-  <h2>Tem uma conta que quase ninguém faz: quanto custa não entrar.</h2>
-  <p>Não é dramática. É matemática simples — quando você calcula o que continua acontecendo enquanto a decisão fica em cima da mesa.</p>
-
-  <h3>Em termos financeiros</h3>
-  <p>R$497 dividido por 12 dá R$49 por mês.</p>
-  <p>Um único ajuste de preço, em uma única oferta sua, paga o ano inteiro. E ajuste de preço é o que o Método 2 (Engenharia de Oferta) força você a fazer nos primeiros 7 dias de aplicação.</p>
-  <p>Cada oferta que você vende hoje por R$497 e poderia estar vendendo por R$3.000 — porque a percepção e a estrutura justificariam — é <strong>R$2.500 deixados na mesa por venda</strong>.</p>
-  <p>Dez vendas por mês nesse formato: <strong>R$25 mil que entraram menores do que poderiam ter entrado.</strong></p>
-  <p class="soft">Não é o que você não ganhou. É o que você ganhou menor do que deveria.</p>
-
-  <h3>Em termos de energia</h3>
-  <p>Cada mês sem essa arquitetura é mais um mês competindo na prateleira do preço.</p>
-  <p>Cliente que poderia ter te escolhido por percepção te escolhe por desconto. Lead que poderia ter chegado pré-decidido chega pra negociar. Conversa que poderia ter sido confirmação vira call de uma hora terminando em "vou pensar".</p>
-  <p>Nada disso aparece como prejuízo no extrato. <strong>Aparece como cansaço no fim do mês.</strong></p>
-
-  <h3>Em termos de tempo</h3>
-  <p>Daqui a 1, 2, 3 anos, a expertise continua crescendo. A operação, não.</p>
-  <p>A pessoa que sabe muito segue empurrando manualmente o que deveria estar rodando.</p>
-  <p class="soft">Esse é o custo de não decidir. Não está no preço do programa. Está em tudo o que continua acontecendo enquanto você não o paga.</p>
-
-  <hr class="rule">
-
-  <!-- ===== GARANTIA ===== -->
-  <div class="warranty">
-    <div class="tag">GARANTIA · 7 DIAS</div>
-    <p><strong>E se eu pagar e o método não fizer sentido pra mim?</strong></p>
-    <p>Sendo bem direto.</p>
-    <p>Você tem <strong>7 dias</strong>, contados do momento em que recebe o acesso, pra ver o conteúdo por dentro. Abrir o Método 1, ler o Manual Operacional, testar o Sistema de Receita Imediata, olhar a Biblioteca de Prompts.</p>
-    <p>Se em qualquer momento dentro dessa janela você concluir que isso não é pra você — não importa o motivo — você pede o reembolso e recebe os R$497 de volta. <strong>Sem questionário. Sem segunda chamada. Sem ter que justificar.</strong></p>
-    <p class="soft">Não é garantia generosa. É honesta. Quem está confiante no que vende não precisa segurar o cliente que não quer ficar.</p>
-  </div>
-
-  <hr class="rule accent">
-
-  <!-- ===== OFERTA FINAL ===== -->
-  <h2>O Plano DreamLife</h2>
-  <p>Você já viu a arquitetura. Já viu o que custa não decidir. Já sabe como o risco está dividido. Resta você fazer a sua parte.</p>
+  <!-- ===== OFERTA ===== -->
+  <h2 id="ev-prova">O Plano DreamLife</h2>
+  <p>Você já viu a arquitetura. Já viu o que custa não decidir. Resta você fazer a sua parte.</p>
 
   <div class="price-box" id="ev-preco">
     <div class="label">O SISTEMA COMPLETO PRA CONSTRUIR SUA MONEYMARK™</div>
     <ul class="checklist">
-      <li><strong>MÉTODO 1 — PO$ICIONAR</strong>Canvas de Percepção preenchido</li>
+      <li><strong>MÉTODO 1 — POSICIONAR</strong>Canvas de Percepção preenchido</li>
       <li><strong>MÉTODO 2 — EXPERTI$E</strong>Oferta principal definida com promessa, mecanismo, escopo, preço</li>
       <li><strong>MÉTODO 3 — SISTEMA DE AQUISIÇÃO</strong>Mapa de Aquisição com canais e cadência</li>
       <li><strong>MÉTODO 4 — FRAMEWORK DE DECISÃO</strong>Script de venda + fluxo de fechamento + mapa de objeções</li>
       <li class="bonus"><strong>BÔNUS 1</strong>Sistema de Receita Imediata</li>
       <li class="bonus"><strong>BÔNUS 2</strong>Manual Operacional MoneyMark™</li>
       <li class="bonus"><strong>BÔNUS 3</strong>Biblioteca de Prompts Estratégicos</li>
-      <li><strong>GARANTIA DE 7 DIAS</strong>Reembolso sem questionário</li>
+      <li><strong>GARANTIA DE 30 DIAS</strong>Reembolso integral pra quem executa</li>
     </ul>
+    <div class="anchor">Valor de mercado (cada método vendido individualmente): entre R$2.000 e R$5.000. Implementado via consultoria: entre R$10.000 e R$30.000.</div>
     <div class="label" style="margin-top:18px">INVESTIMENTO ÚNICO</div>
     <div class="value"><a href="https://wa.me/5511986996261?text=Quero%20Desbloquear%20Meu%20Acesso!" data-cta="mql">R$497 ou 12x de R$49</a></div>
     <div class="terms">Pagamento seguro · acesso imediato</div>
   </div>
+
+  <div class="cta-wrap">
+    <a class="cta" href="https://wa.me/5511986996261?text=Quero%20Desbloquear%20Meu%20Acesso!" data-cta="mql">
+      Quero criar minha MoneyMark™ <span class="arrow">→</span>
+    </a>
+    <div class="cta-note">Pagamento seguro · acesso imediato</div>
+  </div>
+
+  <!-- ===== MEMBRO FUNDADOR / FASE 1 ===== -->
+  <p>O preço de entrada não foi escolhido pra competir com esses programas individuais. Foi escolhido pra que você consiga ser um case sem ter que desembolsar R$10K, R$20K, R$30K agora — e depois vir pra programas diretamente comigo, onde o ticket é outro.</p>
+  <p class="soft">Puro interesse: quanto mais resultado você tiver, mais eu serei bem pago por isso.</p>
+
+  <h3>Mas tem um detalhe importante de timing.</h3>
+  <p>Quem entra hoje fica no preço de <strong>Membro Fundador</strong> — enquanto eu rodo o método ao vivo no meu próprio negócio, com cada camada sendo validada em tempo real.</p>
+  <p>Essa fase é onde o processo é exposto e extraído pra quem tiver dentro. Quando isso fechar, o preço de entrada não vai ser mais o de Fundadores — vai ser outro.</p>
+  <p class="soft">Não é falsa escassez de "compra agora ou perde". É só matemática de fase: quem entra primeiro paga preço de entrada. Quem entra depois paga o maior preço de depois.</p>
+  <p>E se você ainda está fazendo a conta, vale lembrar — o custo que acabamos de calcular já é maior do que o preço. <strong>R$10 mil deixados na mesa por mês, contra um ajuste único de R$497.</strong></p>
+  <p>O preço não é o problema. O problema é o que continua acontecendo enquanto você não decide — e o que vai custar a mais pra entrar depois que a Fase 1 fechar.</p>
+
+  <hr class="rule">
+
+  <!-- ===== GARANTIA ===== -->
+  <h2>E se eu pagar, executar tudo certinho, e mesmo assim não funcionar pra mim?</h2>
+  <p>É a pergunta que sempre sobra depois de tudo. Não sobre o método. Não sobre o preço. Sobre <strong>você</strong> — sobre a possibilidade de fazer tudo certo e ainda assim não ver o resultado.</p>
+  <p>Vou ser bem direto sobre isso.</p>
+
+  <div class="warranty">
+    <div class="tag">GARANTIA DE EXECUÇÃO · 30 DIAS</div>
+    <p>Você tem <strong>30 dias</strong> depois de receber o acesso.</p>
+    <p>Se você executar o método como ele foi estruturado pra ser executado, e mesmo assim não ver mudança real — não na conversa de venda, não em como o cliente reage ao seu preço, não em como você organiza a proposta — você recebe os R$497 de volta. Integral.</p>
+    <p><strong>Sem questionário. Sem segunda chamada. Sem ter que justificar.</strong></p>
+    <p class="soft">Quem está confiante no que vende não precisa segurar quem não quer ficar. Mas também não devolve dinheiro pra quem nem testou. Eu só consigo oferecer essa garantia porque sei o que a arquitetura faz na prática — quando aplicada do jeito que foi projetada pra ser aplicada.</p>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ===== 2 CAMINHOS ===== -->
+  <h2>A partir daqui, existem só 2 caminhos.</h2>
+
+  <div class="paths">
+    <div class="path">
+      <div class="tag">Caminho 1 · Continuar como está</div>
+      <p>A operação segue no seu ombro. A expertise continua crescendo sem gerar receita. O mês fecha em R$5K, R$7K, R$10K nos meses bons. E daqui a 12 meses, você continua sendo o profissional competente que faz a marca dos outros — não a sua.</p>
+    </div>
+    <div class="path highlight">
+      <div class="tag">Caminho 2 · Você entra agora</div>
+      <p>Começa hoje a montar a arquitetura por baixo do que vende. Tem 30 dias de garantia pra executar e ver. Fica no preço de Fase 1 enquanto o método roda ao vivo no meu negócio. Daqui a 12 meses, você é o que tem MoneyMark™ rodando.</p>
+    </div>
+  </div>
+
+  <p>Os 2 caminhos saem do mesmo lugar. Esse lugar.</p>
 
   <div class="cta-wrap" id="ev-cta">
     <a class="cta" href="https://wa.me/5511986996261?text=Quero%20Desbloquear%20Meu%20Acesso!" data-cta="mql">
@@ -773,24 +872,22 @@ ul.bul li::before{
 
   <!-- ===== FECHAMENTO ===== -->
   <div class="signoff">
-    <p>A decisão de entrar n'O Plano DreamLife não é a decisão de comprar mais um curso.</p>
-    <p>É a decisão de parar de operar improvisando.</p>
+    <p>A decisão de entrar n'O Plano DreamLife não é a decisão de comprar mais um curso. É a decisão de parar de operar improvisando.</p>
     <p>E começar a operar dentro de uma arquitetura que faz o ticket de R$3K, R$10K, R$30K virar consequência do que está montado — não exceção do que você empurra.</p>
-    <p style="color:var(--ink);font-style:normal;font-weight:600;margin-top:18px">Quem decide agora, começa hoje.</p>
-    <p>Quem adia, continua pagando o custo que acabamos de calcular. Só que sem o método.</p>
+    <p style="color:var(--ink);font-style:normal;font-weight:600;margin-top:18px">Quem decide agora, começa hoje — e entra no preço de membros fundadores.</p>
+    <p>Quem adia, continua pagando o preço de continuar onde está. Só que sem o método.</p>
   </div>
 
   <footer class="foot">
     <div>JUNIOR FERREIRA · @JUNIORFERREIRASOUEU</div>
-    <div>MEMORANDO · DREAMLIFE</div>
+    <div>MEMORANDO · DREAMLIFE · v2.0</div>
   </footer>
 
 </main>
 
-<!-- ===== Tracking DreamLife v2: atribuição + dedup completo ===== -->
+<!-- ===== Tracking DreamLife v3: atribuição + dedup completo ===== -->
 <script>
 (function(){
-  /* ---------- Camada de atribuição (mesma da v1) ---------- */
   var STORE = 'dl_attr';
 
   function getCookie(name){
@@ -807,7 +904,6 @@ ul.bul li::before{
     var saved;
     try { saved = JSON.parse(sessionStorage.getItem(STORE)); } catch(e){}
     if (saved && saved.utm_campaign !== undefined) return saved;
-
     var qs = new URLSearchParams(location.search);
     var a = {
       fbclid:       qs.get('fbclid')       || '',
@@ -827,7 +923,7 @@ ul.bul li::before{
 
   function customData(extra){
     var d = {
-      content_name: 'DreamLife - MoneyMark v2',
+      content_name: 'DreamLife - MoneyMark v3',
       utm_source:   attr.utm_source,
       utm_medium:   attr.utm_medium,
       utm_campaign: attr.utm_campaign,
@@ -840,20 +936,13 @@ ul.bul li::before{
     return d;
   }
 
-  // endpoint CAPI server-side (só MQL — Worker filtra outros)
   var CAPI_URL = 'https://dreamlife-capi.juniorferreirasoueu-contato.workers.dev/';
 
-  /**
-   * track(name, extra)
-   * - dispara Pixel com {eventID: <uuid>} (resolve alerta de dedup do FB)
-   * - se for MQL, dispara também CAPI com mesmo event_id
-   */
   function track(name, extra){
     var eid = uuid();
     var cd = customData(extra);
     cd.event_id = eid;
 
-    // Pixel (3º argumento = customData, 4º = options com eventID)
     if (window.fbq) {
       if (name === 'PageView') {
         fbq('track', 'PageView', cd, { eventID: eid });
@@ -862,7 +951,6 @@ ul.bul li::before{
       }
     }
 
-    // CAPI server-side só para MQL
     if (name === 'MQL') {
       var payload = JSON.stringify({
         event_name:       'MQL',
@@ -889,17 +977,17 @@ ul.bul li::before{
     }
   }
 
-  // 1) PageView com event_id (não chamamos no <head> pra ter o id)
+  // PageView
   track('PageView');
 
-  // 2) MQL no clique dos CTAs que vão pro WhatsApp
+  // MQL nos CTAs de WhatsApp
   document.querySelectorAll('[data-cta="mql"]').forEach(function(el){
     el.addEventListener('click', function(){
       track('MQL', { value: 497.00, currency: 'BRL' });
     });
   });
 
-  // 2b) CTA do meio: rola até a oferta + dispara evento intermediário
+  // CTA do meio: rola até a oferta + evento intermediário
   document.querySelectorAll('[data-cta="ver-oferta"]').forEach(function(el){
     el.addEventListener('click', function(ev){
       ev.preventDefault();
@@ -909,7 +997,7 @@ ul.bul li::before{
     });
   });
 
-  // 3) Eventos de scroll por seção (1x cada, com event_id)
+  // Eventos de scroll por seção (1x cada)
   var sections = {
     'ev-pilares': 'ViewPilares',
     'ev-metodos': 'ViewMetodos',
@@ -920,9 +1008,6 @@ ul.bul li::before{
   var fired = {};
 
   if ('IntersectionObserver' in window) {
-    // threshold 0 + rootMargin: dispara quando o topo do elemento cruza
-    // ~75% da tela. Funciona mesmo com seções mais altas que a viewport
-    // (que nunca atingiriam 40% visível de uma vez).
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if (entry.isIntersecting) {
@@ -939,7 +1024,7 @@ ul.bul li::before{
     });
   }
 
-  // 4) Barra de progresso de leitura (leve, rAF + listener passivo)
+  // Barra de progresso de leitura
   var bar = document.getElementById('read-progress');
   if (bar) {
     var ticking = false;
